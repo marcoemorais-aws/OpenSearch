@@ -345,6 +345,32 @@ public enum CoreValuesSourceType implements ValuesSourceType {
         public DocValueFormat getFormatter(String format, ZoneId tz) {
             return DocValueFormat.BOOLEAN;
         }
+    },
+    VERSION_STRING() {
+        @Override
+        public ValuesSource getEmpty() {
+            return BYTES.getEmpty();
+        }
+
+        @Override
+        public ValuesSource getScript(AggregationScript.LeafFactory script, ValueType scriptValueType) {
+            return BYTES.getScript(script, scriptValueType);
+        }
+
+        @Override
+        public ValuesSource getField(FieldContext fieldContext, AggregationScript.LeafFactory script) {
+            return BYTES.getField(fieldContext, script);
+        }
+
+        @Override
+        public ValuesSource replaceMissing(ValuesSource valuesSource, Object rawMissing, DocValueFormat docValueFormat, LongSupplier now) {
+            return BYTES.replaceMissing(valuesSource, rawMissing, docValueFormat, now);
+        }
+
+        @Override
+        public DocValueFormat getFormatter(String format, ZoneId tz) {
+            return DocValueFormat.IP;
+        }
     };
 
     public static ValuesSourceType fromString(String name) {

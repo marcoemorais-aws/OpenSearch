@@ -68,7 +68,8 @@ public enum ValueType implements Writeable {
     NUMERIC((byte) 7, "numeric", "numeric", CoreValuesSourceType.NUMERIC, DocValueFormat.RAW),
     GEOPOINT((byte) 8, "geo_point", "geo_point", CoreValuesSourceType.GEOPOINT, DocValueFormat.GEOHASH),
     BOOLEAN((byte) 9, "boolean", "boolean", CoreValuesSourceType.BOOLEAN, DocValueFormat.BOOLEAN),
-    RANGE((byte) 10, "range", "range", CoreValuesSourceType.RANGE, DocValueFormat.RAW);
+    RANGE((byte) 10, "range", "range", CoreValuesSourceType.RANGE, DocValueFormat.RAW),
+    VERSION_STRING((byte) 11, "version_string_prototype", "version_string_prototype", CoreValuesSourceType.VERSION_STRING, DocValueFormat.RAW);
 
     final String description;
     final ValuesSourceType valuesSourceType;
